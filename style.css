@@ -1,0 +1,292 @@
+/* =========================================================
+   RESET — CLEAN & SILENT
+   ========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  font-family: 'Inter', sans-serif;
+  background: #f3f0eb;
+  color: #1b1b1b;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* =========================================================
+   STICKY FOOTER
+   ========================================================= */
+.content {
+  flex: 1;
+}
+
+/* =========================================================
+   CINEMATIC VARIABLES
+   ========================================================= */
+:root {
+  --ease-king: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =========================================================
+   NAVBAR — FLOATING SILENTLY
+   ========================================================= */
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 32px 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+
+  animation: navFloat 2.2s var(--ease-king) forwards;
+}
+
+.nav.light a,
+.nav.light .logo {
+  color: #ffffff;
+}
+
+.nav.dark {
+  background: #f3f0eb;
+}
+
+.nav.dark a,
+.nav.dark .logo {
+  color: #1b1b1b;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  letter-spacing: 4px;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+
+.nav a {
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 1.4px;
+  transition: opacity .6s var(--ease-soft);
+}
+
+.nav a:hover {
+  opacity: .45;
+}
+
+/* =========================================================
+   HERO — FILM OPENING
+   ========================================================= */
+.hero {
+  height: 100vh;
+  background: url("https://images.unsplash.com/photo-1520250497591-112f2f40a3f4") center / cover no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: 0 72px;
+  max-width: 760px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  color: white;
+
+  animation: heroCinema 2.6s var(--ease-king) forwards;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 78px;
+  line-height: 1.04;
+  margin-bottom: 28px;
+}
+
+.hero p {
+  font-size: 16px;
+  max-width: 520px;
+  opacity: 0;
+
+  animation: textGhost 1.8s var(--ease-soft) forwards;
+  animation-delay: 1.4s;
+}
+
+/* =========================================================
+   PAGE HERO
+   ========================================================= */
+.page-hero {
+  padding: 220px 72px 140px;
+  animation: heroCinema 2s var(--ease-king) forwards;
+}
+
+.page-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 58px;
+}
+
+/* =========================================================
+   SECTIONS — BREATHING SPACE
+   ========================================================= */
+.section {
+  padding: 140px 72px;
+  opacity: 0;
+
+  animation: sectionDrift 2s var(--ease-king) forwards;
+  animation-delay: .6s;
+}
+
+.section p {
+  max-width: 580px;
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+/* navbar offset */
+.page-hero,
+.section {
+  margin-top: 96px;
+}
+
+/* =========================================================
+   GRID — STAGGERED LUXURY
+   ========================================================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+  margin-top: 72px;
+}
+
+.card {
+  background: #ffffff;
+  padding: 52px;
+
+  opacity: 0;
+  transform: translateY(40px);
+
+  animation: cardAscend 1.8s var(--ease-king) forwards;
+}
+
+.card:nth-child(2) { animation-delay: .3s; }
+.card:nth-child(3) { animation-delay: .6s; }
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card h3 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 12px;
+}
+
+/* =========================================================
+   GALLERY — MUSEUM MOTION
+   ========================================================= */
+.image-box {
+  height: 280px;
+  background: #d3cec6;
+
+  transition: transform 2.2s var(--ease-king);
+}
+
+.image-box:hover {
+  transform: scale(1.06);
+}
+
+/* =========================================================
+   FOOTER — QUIET ENDING
+   ========================================================= */
+.footer {
+  background: #141414;
+  color: white;
+  padding: 72px;
+  font-size: 11px;
+  letter-spacing: 1.6px;
+  text-align: center;
+
+  animation: footerAppear 2s var(--ease-soft) forwards;
+}
+
+/* =========================================================
+   KEYFRAMES — CINEMA GRADE
+   ========================================================= */
+@keyframes heroCinema {
+  from {
+    opacity: 0;
+    transform: translateY(60px) scale(1.04);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes textGhost {
+  to {
+    opacity: .85;
+  }
+}
+
+@keyframes sectionDrift {
+  from {
+    opacity: 0;
+    transform: translateY(48px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardAscend {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes navFloat {
+  from {
+    opacity: 0;
+    transform: translateY(-28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes footerAppear {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
