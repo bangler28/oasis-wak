@@ -28,6 +28,7 @@ body {
    STICKY FOOTER
    ========================================================= */
 .content {
+  position: fixed;
   flex: 1;
 }
 
