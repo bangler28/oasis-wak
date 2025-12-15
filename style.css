@@ -234,6 +234,7 @@ body {
   font-size: 11px;
   letter-spacing: 1.6px;
   text-align: center;
+  position: fixed;
 
   animation: footerAppear 2s var(--ease-soft) forwards;
 }
