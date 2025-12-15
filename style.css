@@ -28,7 +28,7 @@ body {
    STICKY FOOTER
    ========================================================= */
 .content {
-  position: fixed;
+  position: sticky;
   flex: 1;
 }
 
@@ -228,13 +228,14 @@ body {
    FOOTER — QUIET ENDING
    ========================================================= */
 .footer {
+  position: sticky;
   background: #141414;
   color: white;
   padding: 72px;
   font-size: 11px;
   letter-spacing: 1.6px;
   text-align: center;
-  position: fixed;
+  
 
   animation: footerAppear 2s var(--ease-soft) forwards;
 }
